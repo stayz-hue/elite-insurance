@@ -317,8 +317,7 @@ async function callGAS(action, params) {
   const body = Object.assign({action}, params);
   const res = await fetch(GAS_URL, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(body)
+    body: JSON.stringify(body)  // headers 줄만 삭제
   });
   const data = await res.json();
   if (!data.success && data.message) throw new Error(data.message);
